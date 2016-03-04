@@ -5,12 +5,14 @@
 
   function Fahrenheit(valor)
   {
+    this.valor = valor;
+    this.tipo = "F";
   }
   exports.Fahrenheit = Fahrenheit;
   Fahrenheit.prototype.toCelsius = function() {
-    return 0;
+    return (this.valor -32) * 5/9;
   };
   Fahrenheit.prototype.toKelvin = function() {
-    return 0;
+    return (this.valor + 459.67) * 5/9;
   };
 })(this);
