@@ -6,14 +6,14 @@
     /* tipo es opcional. Debería admitir  new Medida("45.2 Km") */
     /* ademas de new Medida(45.2, "Km") */
     this.valor = valor;
-    this.valor = tipo;
+    this.tipo = tipo;
   }
 
   function Temperatura(valor,tipo)
   {
     /* tipo es opcional. Debería admitir new Medida("45.2 F") */
     this.valor = valor;
-    this.valor = tipo;
+    this.tipo = tipo;
   }
 
   exports.Temperatura = Temperatura;
