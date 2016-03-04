@@ -1,3 +1,5 @@
+/* Parte de Daniel */
+
 (function(exports) {
   "use strict";
 
