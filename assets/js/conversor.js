@@ -53,6 +53,16 @@
           elemento_far.innerHTML = kelvin.toFahrenheit().toFixed(2) + " Fahrenheit";
           elemento_kel.innerHTML = numero.toFixed(2) + " Kelvin";
           break;
+        case 'm':
+          var metro = new Metro(numero);
+          elemento_pul.innerHTML = metro.toPulgada().toFixed(2) + " Pulgadas";
+          elemento_met.innerHTML = metro.toFixed(2) + " Metros";
+          break;
+        case 'p':
+          var pulgada = new Pulgada(numero);
+          elemento_met.innerHTML = pulgada.toMetro().toFixed(2) + " Metros";
+          elemento_pul.innerHTML = pulgada.toFixed(2) + " Pulgadas";
+          break;
         default:
           elemento_cel.innerHTML = "Error";
           elemento_far.innerHTML = "";
