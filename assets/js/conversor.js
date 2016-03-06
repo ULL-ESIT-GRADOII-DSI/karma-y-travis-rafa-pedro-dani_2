@@ -23,6 +23,8 @@
         elemento_cel  = document.getElementById('converted_cel'),
         elemento_far  = document.getElementById('converted_far'),
         elemento_kel  = document.getElementById('converted_kel'),
+        elemento_met  = document.getElementById('converted_met'),
+        elemento_pul  = document.getElementById('converted_pul'),
         /* Extienda la RegeExp a la especificación. use una XRegExp */
         regexp    = /^\s*([-+]?\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s*([a-z,A-Z]+)\s*$/i,
         valor     = valor.match(regexp);
@@ -56,23 +58,27 @@
         case 'm':
           var metro = new Metro(numero);
           elemento_pul.innerHTML = metro.toPulgada().toFixed(2) + " Pulgadas";
-          elemento_met.innerHTML = metro.toFixed(2) + " Metros";
+          elemento_met.innerHTML = numero.toFixed(2) + " Metros";
           break;
         case 'p':
           var pulgada = new Pulgada(numero);
           elemento_met.innerHTML = pulgada.toMetro().toFixed(2) + " Metros";
-          elemento_pul.innerHTML = pulgada.toFixed(2) + " Pulgadas";
+          elemento_pul.innerHTML = numero.toFixed(2) + " Pulgadas";
           break;
         default:
-          elemento_cel.innerHTML = "Error";
+          elemento_cel.innerHTML = "";
           elemento_far.innerHTML = "";
           elemento_kel.innerHTML = "";
+          elemento_met.innerHTML = "";
+          elemento_pul.innerHTML = "";
       }
     }
     else{
-      elemento_cel.innerHTML = "Error";
+      elemento_cel.innerHTML = "";
       elemento_far.innerHTML = "";
       elemento_kel.innerHTML = "";
+      elemento_met.innerHTML = "";
+      elemento_pul.innerHTML = "";
     }
   }
 })(this);
