@@ -26,7 +26,7 @@
           elemento_pul  = document.getElementById('converted_pul');
         /* Extienda la RegeExp a la especificación. use una XRegExp */
         var regexp=XRegExp('(?<entrada>^[ ]*([-+]?[0-9]+(?:\.[0-9]+)?[ ]*(?:e[+-]?[1-9]+)?))#entrada \n\
-        (?<medida>[ ]*([cCfFkKmM])?) #medida \n\
+        (?<medida>[ ]*([cCfFkKmMpP])?) #medida \n\
         (?<parteopcional> [ ]*([tT][o])?[ ]*) #parteopcional \n\
          (?<conversion>[ ]*[cCfFkKmMpP][ ]*) #conversion','x');
          var valor=XRegExp.exec(document.getElementById('convert').value,regexp);
