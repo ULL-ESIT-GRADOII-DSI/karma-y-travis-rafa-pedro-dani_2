@@ -19,15 +19,12 @@
   exports.Temperatura = Temperatura;
 
   exports.convertir = function() {
-    var valor     = document.getElementById('convert').value,
-        elemento_cel  = document.getElementById('converted_cel'),
+    var elemento_cel  = document.getElementById('converted_cel'),
         elemento_far  = document.getElementById('converted_far'),
         elemento_kel  = document.getElementById('converted_kel'),
         elemento_met  = document.getElementById('converted_met'),
         elemento_pul  = document.getElementById('converted_pul'),
         /* Extienda la RegeExp a la especificación. use una XRegExp */
-        regexp    = /^\s*([-+]?\d+(?:\.\d+)?(?:e[+-]?\d+)?)\s*([a-z,A-Z]+)\s*$/i,
-        valor     = valor.match(regexp);
 
     if (valor) {
       var numero = valor[1],
