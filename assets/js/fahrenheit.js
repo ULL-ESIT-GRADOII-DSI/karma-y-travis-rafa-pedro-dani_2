@@ -5,9 +5,11 @@
 
   function Fahrenheit(valor)
   {
-    this.valor = valor;
-    this.tipo = "F";
+    Temperatura.call(this,valor,"F");
   }
+
+  Fahrenheit.prototype = new Temperatura;
+
   exports.Fahrenheit = Fahrenheit;
   Fahrenheit.prototype.toCelsius = function() {
     return (this.valor -32) * 5/9;
