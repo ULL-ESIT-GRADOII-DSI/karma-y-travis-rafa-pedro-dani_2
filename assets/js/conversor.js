@@ -34,7 +34,9 @@
                          '(?<medida> (' +
                                       '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
                                       '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
-                                      '(k|ke|kel|kelv|kelvi|kelvin)       #grados kelvin\n' +
+                                      '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
+                                      '(m|me|met|metr|metro|metros)| #metros \n' +
+                                      '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
                                     ')) \n' +
                          '\\s*   \n' +
                          '((?<verbo> to) \n' +
@@ -42,12 +44,19 @@
                          '(?<medida_dest> (' +
                                       '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
                                       '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
-                                      '(k|ke|kel|kelv|kelvi|kelvin)       #grados kelvin\n' +
+                                      '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
+                                      '(m|me|met|metr|metro|metros)| #metros \n' +
+                                      '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
                                     ')))? \n' +
                          '\\s*   $', 'x');
     valor = valor.toLowerCase();
     valor = XRegExp.exec(valor,regexp);
     if(valor){
+      elemento_cel.innerHTML = "";
+      elemento_far.innerHTML = "";
+      elemento_kel.innerHTML = "";
+      elemento_met.innerHTML = "";
+      elemento_pul.innerHTML = "";
       var numero    = valor.cantidad,
           tipo      = valor.medida[0], //Primer carácter del tipo, o sea f para fahrenheit, k para kelvin y c para celsius
           tipo_dest = null;
