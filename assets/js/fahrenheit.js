@@ -8,7 +8,7 @@
     Temperatura.call(this,valor,"F");
   }
 
-  Fahrenheit.prototype = new Temperatura;
+  Fahrenheit.prototype = new Temperatura();
   Fahrenheit.prototype.constructor = Fahrenheit;
 
   exports.Fahrenheit = Fahrenheit;

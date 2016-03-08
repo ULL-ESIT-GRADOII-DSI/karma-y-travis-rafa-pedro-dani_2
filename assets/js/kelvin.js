@@ -5,10 +5,12 @@
 
   function Kelvin(valor)
   {
-    this.valor=valor;
-    this.tipo='k';
+    Temperatura.call(this,valor,"K");
   }
+  Kelvin.prototype=new Temperatura();
+  Kelvin.prototype.constructor=Kelvin;
   exports.Kelvin = Kelvin;
+  
   Kelvin.prototype.toCelsius = function() {
     return (this.valor-273.15);
   };
