@@ -9,6 +9,7 @@
   }
 
   Fahrenheit.prototype = new Temperatura;
+  Fahrenheit.prototype.constructor = Fahrenheit;
 
   exports.Fahrenheit = Fahrenheit;
   Fahrenheit.prototype.toCelsius = function() {
