@@ -21,11 +21,7 @@
 
   exports.convertir = function() {
     var valor     = document.getElementById('convert').value,
-        elemento_cel  = document.getElementById('converted_cel'),
-        elemento_far  = document.getElementById('converted_far'),
-        elemento_kel  = document.getElementById('converted_kel'),
-        elemento_met  = document.getElementById('converted_met'),
-        elemento_pul  = document.getElementById('converted_pul'),
+        elemento  = document.getElementById('converted'),
 
         /* Extienda la RegeExp a la especificación. use una XRegExp */
         regexp = XRegExp('^\\s*  \n' +
@@ -39,7 +35,7 @@
                                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
                                     ')) \n' +
                          '\\s*   \n' +
-                         '((?<verbo> to) \n' +
+                         '(?<verbo> to)? \n' +
                          '\\s*   \n' +
                          '(?<medida_dest> (' +
                                       '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
@@ -47,16 +43,11 @@
                                       '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
                                       '(m|me|met|metr|metro|metros)| #metros \n' +
                                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
-                                    ')))? \n' +
+                                    ')) \n' +
                          '\\s*   $', 'x');
     valor = valor.toLowerCase();
     valor = XRegExp.exec(valor,regexp);
     if(valor){
-      elemento_cel.innerHTML = "";
-      elemento_far.innerHTML = "";
-      elemento_kel.innerHTML = "";
-      elemento_met.innerHTML = "";
-      elemento_pul.innerHTML = "";
       var numero    = valor.cantidad,
           tipo      = valor.medida[0], //Primer carácter del tipo, o sea f para fahrenheit, k para kelvin y c para celsius
           tipo_dest = null;
@@ -67,44 +58,46 @@
       numero = parseFloat(numero);
       console.log("Valor: " + numero + ", Tipo: " + tipo + ", Destino: " + tipo_dest);
 
+      var obj_numer = null;
       switch (tipo) {
         case 'c':
-          var celsius = new Celsius(numero);
-          elemento_cel.innerHTML = numero.toFixed(2) + " Celsius";
-          elemento_far.innerHTML = celsius.toFahrenheit().toFixed(2) + " Fahrenheit";
-          elemento_kel.innerHTML = celsius.toKelvin().toFixed(2) + " Kelvin";
+          obj_numer = new Celsius(numero);
           break;
         case 'f':
-          var fahrenheit = new Fahrenheit(numero);
-          elemento_cel.innerHTML = fahrenheit.toCelsius().toFixed(2) + " Celsius";
-          elemento_far.innerHTML = numero.toFixed(2) + " Fahrenheit";
-          elemento_kel.innerHTML = fahrenheit.toKelvin().toFixed(2) + " Kelvin";
+          obj_numer = new Fahrenheit(numero);
           break;
         case 'k':
-          var kelvin = new Kelvin(numero);
-          elemento_cel.innerHTML = kelvin.toCelsius().toFixed(2) + " Celsius";
-          elemento_far.innerHTML = kelvin.toFahrenheit().toFixed(2) + " Fahrenheit";
-          elemento_kel.innerHTML = numero.toFixed(2) + " Kelvin";
+          obj_numer = new Kelvin(numero);
           break;
         case 'm':
-          var metro = new Metro(numero);
-          elemento_pul.innerHTML = metro.toPulgada().toFixed(2) + " Pulgadas";
-          elemento_met.innerHTML = numero.toFixed(2) + " Metros";
+          obj_numer = new Metro(numero);
           break;
         case 'p':
-          var pulgada = new Pulgada(numero);
-          elemento_met.innerHTML = pulgada.toMetro().toFixed(2) + " Metros";
-          elemento_pul.innerHTML = numero.toFixed(2) + " Pulgadas";
+          obj_numer = new Pulgada(numero);
+          break;
+      }
+
+      switch (tipo_dest) {
+        case 'c':
+          elemento.innerHTML = obj_numer.toCelsius().toFixed(2) + " Celsius";
+          break;
+        case 'f':
+          elemento.innerHTML = obj_numer.toFahrenheit().toFixed(2) + " Fahrenheit";
+          break;
+        case 'k':
+          elemento.innerHTML = obj_numer.toKelvin().toFixed(2) + " Kelvin";
+          break;
+        case 'm':
+          elemento.innerHTML = obj_numer.toMetro().toFixed(2) + " Metros";
+          break;
+        case 'p':
+          elemento.innerHTML = obj_numer.toPulgada().toFixed(2) + " Pulgadas";
           break;
       }
     }
     else{
       console.error('Error en la expresión');
-      elemento_cel.innerHTML = "Error en la entrada";
-      elemento_far.innerHTML = "";
-      elemento_kel.innerHTML = "";
-      elemento_met.innerHTML = "";
-      elemento_pul.innerHTML = "";
+      elemento.innerHTML = "Error en la entrada";
     }
   };
 })(this);
