@@ -14,6 +14,9 @@ Este repositorio aloja la práctica de conversión de tipos, realizada con html,
 **Página del campus de la asignatura**
 * [Campus Virtual DSI](https://campusvirtual.ull.es/1516/course/view.php?id=144)
 
+**Página de la descripción de la práctica**
+* [Descripción Práctica desde el campus](https://campusvirtual.ull.es/1516/mod/page/view.php?id=178103)
+
 **Páginas de los autores**
 
 * [Rafa Herrero](http://rafaherrero.github.io/)
