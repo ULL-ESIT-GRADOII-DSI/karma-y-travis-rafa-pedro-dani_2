@@ -33,7 +33,7 @@
                                '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
                            ')) \n' +
                            '\\s*   \n' +
-                           '(?<verbo> to)? \n' +
+                           '(to)? \n' +
                            '\\s*   \n' +
                            '(?<medida_dest> (' +
                                '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
