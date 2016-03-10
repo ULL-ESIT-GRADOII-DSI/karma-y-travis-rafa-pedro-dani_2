@@ -1,6 +1,28 @@
 (function (exports) {
     "use strict";
 
+    var regexp = new XRegExp('^\\s* \n' +
+                   '(?<cantidad>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
+                   '\\s*   \n' +
+                   '(?<medida> (' +
+                       '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
+                       '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
+                       '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
+                       '(m|me|met|metr|metro|metros)| #metros \n' +
+                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
+                   ')) \n' +
+                   '\\s*   \n' +
+                   '(to)? \n' +
+                   '\\s*   \n' +
+                   '(?<medida_dest> (' +
+                       '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
+                       '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
+                       '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
+                       '(m|me|met|metr|metro|metros)| #metros \n' +
+                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
+                   ')) \n' +
+                   '\\s*   $', 'x');
+
     function Medida(valor, tipo) {
         /* tipo es opcional. Debería admitir  new Medida("45.2 Km") */
         /* ademas de new Medida(45.2, "Km") */
@@ -19,30 +41,8 @@
 
     exports.convertir = function () {
         var valor = document.getElementById('convert').value,
-            elemento = document.getElementById('converted'),
+            elemento = document.getElementById('converted');
 
-            /* Extienda la RegeExp a la especificación. use una XRegExp */
-            regexp = new XRegExp('^\\s* \n' +
-                           '(?<cantidad>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
-                           '\\s*   \n' +
-                           '(?<medida> (' +
-                               '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
-                               '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
-                               '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
-                               '(m|me|met|metr|metro|metros)| #metros \n' +
-                               '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
-                           ')) \n' +
-                           '\\s*   \n' +
-                           '(to)? \n' +
-                           '\\s*   \n' +
-                           '(?<medida_dest> (' +
-                               '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)| # Posibles valores para fahrenheit \n' +
-                               '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
-                               '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
-                               '(m|me|met|metr|metro|metros)| #metros \n' +
-                               '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
-                           ')) \n' +
-                           '\\s*   $', 'x');
         valor = valor.toLowerCase();
         valor = XRegExp.exec(valor, regexp);
         if (valor) {
