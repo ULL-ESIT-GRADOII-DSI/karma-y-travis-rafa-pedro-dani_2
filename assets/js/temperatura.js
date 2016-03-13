@@ -4,8 +4,8 @@ function Temperatura(valor, tipo) {
 }
 
 Temperatura.prototype = new Medida();
+Celsius.prototype.constructor = Temperatura;
 
-exports.Temperatura = Temperatura;
 //=======================================================
           //clase Celsius
 //=======================================================
@@ -14,7 +14,7 @@ function Celsius(valor) {
 }
 Celsius.prototype = new Temperatura();
 Celsius.prototype.constructor = Celsius;
-exports.Celsius = Celsius;
+Medida.measures.c = Celsius;
 Celsius.prototype.toFahrenheit = function () {
     return (this.valor * 9 / 5) + 32;
 };
@@ -31,7 +31,7 @@ function Fahrenheit(valor) {
 Fahrenheit.prototype = new Temperatura();
 Fahrenheit.prototype.constructor = Fahrenheit;
 
-exports.Fahrenheit = Fahrenheit;
+Medida.measures.f = Fahrenheit;
 Fahrenheit.prototype.toCelsius = function () {
     return (this.valor - 32) * 5 / 9;
 };
@@ -46,37 +46,11 @@ function Kelvin(valor) {
 }
 Kelvin.prototype = new Temperatura();
 Kelvin.prototype.constructor = Kelvin;
-exports.Kelvin = Kelvin;
+Medida.measures.k = Kelvin;
 
 Kelvin.prototype.toCelsius = function () {
     return (this.valor - 273.15);
 };
 Kelvin.prototype.toFahrenheit = function () {
     return (this.valor - 273.15) * (9 / 5) + 32;
-};
-
-//=======================================================
-          //clase metro
-//=======================================================
-function Metro(valor)
-{
-  this.valor = valor;
-  this.tipo = "M";
-}
-exports.Metro = Metro;
-Metro.prototype.toPulgada = function() {
-  return (this.valor *39.3701);
-};
-
-//=======================================================
-          //clase pulgada
-//=======================================================
-function Pulgada(valor)
-{
-  this.valor = valor;
-  this.tipo = "P";
-}
-exports.Pulgada = Pulgada;
-Pulgada.prototype.toMetro = function() {
-  return (this.valor *0.0254);
 };
