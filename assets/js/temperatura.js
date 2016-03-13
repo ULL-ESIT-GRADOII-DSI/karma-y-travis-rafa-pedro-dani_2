@@ -4,7 +4,7 @@ function Temperatura(valor, tipo) {
 }
 
 Temperatura.prototype = new Medida();
-Celsius.prototype.constructor = Temperatura;
+Temperatura.prototype.constructor = Temperatura;
 
 //=======================================================
           //clase Celsius
