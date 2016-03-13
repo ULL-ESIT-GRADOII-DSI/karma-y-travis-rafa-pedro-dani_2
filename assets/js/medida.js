@@ -30,15 +30,28 @@
         this.tipo = tipo;
     }
 
-    function Temperatura(valor, tipo) {
-        /* tipo es opcional. Debería admitir new Medida("45.2 F") */
-        Medida.call(this, valor, tipo);
-    }
+    Medida.convertir = function(valor) {
+      var measures = Medida.measures;
 
-    Temperatura.prototype = new Medida();
+      var match = Medida.match(valor);
+      if (match) {
+        var numero = match.numero,
+            tipo   = match.tipo,
+            destino = match.destino;
 
-    exports.Temperatura = Temperatura;
-
+        try {
+          var source = new measures[tipo](numero);  // new Fahrenheit(32)
+          var target = "to"+measures[destino].name; // "toCelsius"
+          return source[target]().toFixed(2) + " "+target; // "0 Celsius"
+        }
+        catch(err) {
+          return 'Desconozco como convertir desde "'+tipo+'" hasta "'+destino+'"';
+        }
+      }
+      else
+        return "Introduzca una temperatura valida: 330e-1 F to C";
+    };
+    /*
     exports.convertir = function () {
         var valor = document.getElementById('convert').value,
             elemento = document.getElementById('converted');
@@ -101,5 +114,5 @@
             console.error('Error en la expresión');
             elemento.innerHTML = "Error en la entrada";
         }
-    };
+    };*/
 })(this);
