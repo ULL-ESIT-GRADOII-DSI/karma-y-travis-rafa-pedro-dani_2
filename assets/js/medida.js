@@ -16,7 +16,10 @@ Medida.match = function(valor) {
                        '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
                        '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
                        '(m|me|met|metr|metro|metros)| #metros \n' +
-                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
+                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas)| #pulgadas \n' +
+                       '(e|eu|eur|euro|euros)| #euros \n' +
+                       '(d|do|dol|dola|dolar|dolare|dolares)| #dolares \n' +
+                       '(l|li|lib|libr|libra|libras) #libras \n' +
                    ')) \n' +
                    '\\s*   \n' +
                    '(to)? \n' +
@@ -26,7 +29,10 @@ Medida.match = function(valor) {
                        '(c|ce|cel|cels|celsi|celsiu|celsius)| # Valores de grados celsius \n' +
                        '(k|ke|kel|kelv|kelvi|kelvin)|       #grados kelvin\n' +
                        '(m|me|met|metr|metro|metros)| #metros \n' +
-                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas) #pulgadas \n' +
+                       '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas)| #pulgadas \n' +
+                       '(e|eu|eur|euro|euros)| #euros \n' +
+                       '(d|do|dol|dola|dolar|dolare|dolares)| #dolares \n' +
+                       '(l|li|lib|libr|libra|libras) #libras \n' +
                    ')) \n' +
                    '\\s*   $', 'x');
     return XRegExp.exec(valor, regexp);
@@ -58,5 +64,5 @@ Medida.convertir = function(valor) {
     }
   }
   else
-    return "Introduzca una temperatura valida: 330e-1 F to C";
+    return "Introduzca una entrada valida como: 330e-1 F to C";
 };
