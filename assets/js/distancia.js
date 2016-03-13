@@ -21,7 +21,7 @@ function Pulgada(valor) {
 }
 Pulgada.prototype = new Distancia();
 Pulgada.prototype.constructor = Pulgada;
-Medida.measures.m = Pulgada;
+Medida.measures.p = Pulgada;
 Pulgada.prototype.toMetro = function() {
     return (this.valor *0.0254);
 };
