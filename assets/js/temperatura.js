@@ -21,6 +21,9 @@ Celsius.prototype.toFahrenheit = function () {
 Celsius.prototype.toKelvin = function () {
     return (this.valor + 273.15);
 };
+Celsius.prototype.toString = function () {
+    return this.valor + " Celsius";
+}
 //=======================================================
           //clase fahrenheit
 //=======================================================
@@ -38,6 +41,9 @@ Fahrenheit.prototype.toCelsius = function () {
 Fahrenheit.prototype.toKelvin = function () {
     return (this.valor + 459.67) * 5 / 9;
 };
+Fahrenheit.prototype.toString = function () {
+    return this.valor + " Fahrenheit";
+}
 //=======================================================
           //clase kelvin
 //=======================================================
@@ -54,3 +60,6 @@ Kelvin.prototype.toCelsius = function () {
 Kelvin.prototype.toFahrenheit = function () {
     return (this.valor - 273.15) * (9 / 5) + 32;
 };
+Kelvin.prototype.toString = function () {
+    return this.valor + " Kelvin";
+}
