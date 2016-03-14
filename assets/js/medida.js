@@ -47,8 +47,8 @@ Medida.convertir = function(valor) {
   var match = Medida.match(valor);
   if (match) {
     var numero = parseFloat(match.numero),
-        tipo   = match.tipo,
-        destino = match.destino;
+        tipo   = match.tipo[0],
+        destino = match.destino[0];
 
     console.log("El match da " + numero + " de tipo " + tipo + " a " + destino);
 
