@@ -10,6 +10,11 @@
         /* ademas de new Medida(45.2, "Km") */
         this.valor = valor;
         this.tipo = tipo;
+        if(arguments.length==1){
+          var regexp2=/^\s*([+-]\d+)([A-Z])\s*$/;
+          var v=valor.match(regexp2);
+          this.tipo=v[2];
+        }
     }
 
     Medida.tipos = '(?<SALIDA> (' +
