@@ -14,7 +14,7 @@
           var regexp2 = new XRegExp('^\\s* \n' +
                          '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
                          '\\s*   \n' +
-                         '(?<tipo> [A-Z]+ )\n'+
+                         '(?<tipo> [a-zA-Z]+ )\n'+
                          '\\s*   $', 'x');
           var v=XRegExp.exec(valor, regexp2);
           this.tipo=v.tipo;
