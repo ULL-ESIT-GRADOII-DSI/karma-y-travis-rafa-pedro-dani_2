@@ -1,14 +1,18 @@
-/*jslint browser: true, this: true, white: true*/
+/*jslint browser: true, this: true*/
 /*global
     Medida
 */
 
-(function(exports) {
+(function (exports) {
     "use strict";
-    function main() {
-        var valor     = document.getElementById('convert').value;
-        var elemento  = document.getElementById('converted');
-        elemento.innerHTML = Medida.convertir(valor);
+    function main(keypressed) {
+        var valor = document.getElementById('convert').value;
+        var elemento = document.getElementById('converted');
+        if (keypressed.keyCode === 13) {
+            elemento.innerHTML = Medida.convertir(valor);
+        } else {
+            elemento.innerHTML = "";
+        }
         return false;
     }
     exports.main = main;

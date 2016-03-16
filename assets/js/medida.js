@@ -32,7 +32,6 @@
         Medida.tipos2.push(valor);
         this.tipos = "(?<SALIDA> (";
         this.tipos2.forEach(function(element, index){
-            console.log(element);
             if(index !== 0) {
                 Medida.tipos += "|";
             }
