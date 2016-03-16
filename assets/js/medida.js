@@ -11,57 +11,45 @@
         this.valor = valor;
         this.tipo = tipo;
         if(arguments.length===1){
-          var regexp2 = new XRegExp('^\\s* \n' +
+          var controlConstructor = new XRegExp('^\\s* \n' +
                          '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
                          '\\s*   \n' +
                          '(?<tipo> [a-zA-Z]+ )\n'+
                          '\\s*   $', 'x');
-          var v=XRegExp.exec(valor, regexp2);
+          var v=XRegExp.exec(valor, controlConstructor);
           this.tipo=v.tipo;
           this.valor=v.numero;
         }
     }
-    Medida.tipos = "";
-    Medida.tipos2 = [];
+    Medida.tiposexp = "";
+    Medida.tipos = [];
     var regexp = null;
 
     Medida.anadirTipos = function (valor) {
         if(valor === undefined){
             return;
         }
-        Medida.tipos2.push(valor);
-        this.tipos = "(?<SALIDA> (";
-        this.tipos2.forEach(function(element, index){
+        Medida.tipos.push(valor);
+        this.tiposexp = "(?<SALIDA> (";
+        this.tipos.forEach(function(element, index){
             console.log(element);
             if(index !== 0) {
-                Medida.tipos += "|";
+                Medida.tiposexp += "|";
             }
-            Medida.tipos += element;
+            Medida.tiposexp += element;
         });
-        this.tipos += '))';
+        this.tiposexp += '))';
 
         regexp = new XRegExp('^\\s* \n' +
                        '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
                        '\\s*   \n' +
-                        this.tipos.replace(/SALIDA/g, "tipo") +
+                        this.tiposexp.replace(/SALIDA/g, "tipo") +
                        '\\s*   \n' +
                        '(to)? \n' +
                        '\\s*   \n' +
-                        this.tipos.replace(/SALIDA/g, "destino") +
+                        this.tiposexp.replace(/SALIDA/g, "destino") +
                        '\\s*   $', 'x');
     };
-/*
-    Medida.tipos2 = [
-        '(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)',
-        '(c|ce|cel|cels|celsi|celsiu|celsius)',
-        '(k|ke|kel|kelv|kelvi|kelvin)',
-        '(m|me|met|metr|metro|metros)',
-        '(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas)',
-        '(e|eu|eur|euro|euros)',
-        '(d|do|dol|dola|dolar|dolare|dolares)',
-        '(l|li|lib|libr|libra|libras)'
-
-    ];*/
 
     Medida.match = function (valor) {
         return XRegExp.exec(valor, regexp);
