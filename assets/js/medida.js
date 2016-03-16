@@ -29,9 +29,9 @@
         if(valor === undefined){
             return;
         }
-        Medida.tipos2.push(valor);
-        this.tipos = "(?<SALIDA> (";
-        this.tipos2.forEach(function(element, index){
+        Medida.tipos.push(valor);
+        this.tiposexp = "(?<SALIDA> (";
+        this.tipos.forEach(function(element, index){
             if(index !== 0) {
                 Medida.tiposexp += "|";
             }
