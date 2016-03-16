@@ -31,12 +31,13 @@
         }
         Medida.tipos2.push(valor);
         this.tipos = "(?<SALIDA> (";
-        for(var i = 0; i < Medida.tipos2.length; i++) {
-            if(i !== 0) {
+        this.tipos2.forEach(function(element, index){
+            console.log(element);
+            if(index !== 0) {
                 Medida.tipos += "|";
             }
-            this.tipos += Medida.tipos2[i];
-        }
+            Medida.tipos += element;
+        });
         this.tipos += '))';
 
         regexp = new XRegExp('^\\s* \n' +
