@@ -10,7 +10,7 @@
         /* ademas de new Medida(45.2, "Km") */
         this.valor = valor;
         this.tipo = tipo;
-        if(arguments.length==1){
+        if(arguments.length===1){
           var regexp2 = new XRegExp('^\\s* \n' +
                          '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
                          '\\s*   \n' +
