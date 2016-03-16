@@ -23,6 +23,7 @@
     Celsius.prototype = new Temperatura();
     Celsius.prototype.constructor = Celsius;
     Medida.measures.c = Celsius;
+    Medida.anadirTipos('(c|ce|cel|cels|celsi|celsiu|celsius)');
 
     function Fahrenheit(valor) {
         Temperatura.call(this, valor, "F");
@@ -30,6 +31,7 @@
     Fahrenheit.prototype = new Temperatura();
     Fahrenheit.prototype.constructor = Fahrenheit;
     Medida.measures.f = Fahrenheit;
+    Medida.anadirTipos('(f|fa|fah|fahr|fahre|fahren|fahrenh|fahrenhe|fahrenhei|fahrenheit)');
 
     function Kelvin(valor) {
         Temperatura.call(this, valor, "K");
@@ -37,6 +39,7 @@
     Kelvin.prototype = new Temperatura();
     Kelvin.prototype.constructor = Kelvin;
     Medida.measures.k = Kelvin;
+    Medida.anadirTipos('(k|ke|kel|kelv|kelvi|kelvin)');
 
     // =========================================================
     // Métodos de las clases de los tipos
