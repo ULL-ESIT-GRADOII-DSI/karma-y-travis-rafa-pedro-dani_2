@@ -11,9 +11,14 @@
         this.valor = valor;
         this.tipo = tipo;
         if(arguments.length==1){
-          var regexp2=/^\s*([+-]\d+)([A-Z])\s*$/;
-          var v=valor.match(regexp2);
-          this.tipo=v[2];
+          var regexp2 = new XRegExp('^\\s* \n' +
+                         '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
+                         '\\s*   \n' +
+                         '(?<tipo> [A-Z]+ )\n'+
+                         '\\s*   $', 'x');
+          var v=XRegExp.exec(valor, regexp2);
+          this.tipo=v.tipo;
+          this.valor=v.numero;
         }
     }
 
