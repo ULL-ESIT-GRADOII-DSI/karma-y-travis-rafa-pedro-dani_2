@@ -19,6 +19,7 @@
     Dolar.prototype = new Moneda();
     Dolar.prototype.constructor = Dolar;
     Medida.measures.d = Dolar;
+    Medida.anadirTipos('(d|do|dol|dola|dolar|dolare|dolares)');
 
     function Euro(valor) {
         Moneda.call(this, valor, "E");
@@ -26,6 +27,7 @@
     Euro.prototype = new Moneda();
     Euro.prototype.constructor = Euro;
     Medida.measures.e = Euro;
+    Medida.anadirTipos('(e|eu|eur|euro|euros)');
 
     function Libra(valor) {
         Moneda.call(this, valor, "L");
@@ -33,6 +35,7 @@
     Libra.prototype = new Moneda();
     Libra.prototype.constructor = Libra;
     Medida.measures.l = Libra;
+    Medida.anadirTipos('(l|li|lib|libr|libra|libras)');
 
     Dolar.prototype.toEuro = function () {
         return new Euro(this.valor * 0.90);

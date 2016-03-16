@@ -19,6 +19,7 @@
     Metro.prototype = new Distancia();
     Metro.prototype.constructor = Metro;
     Medida.measures.m = Metro;
+    Medida.anadirTipos('(m|me|met|metr|metro|metros)');
 
     function Pulgada(valor) {
         Distancia.call(this, valor, "P");
@@ -26,6 +27,7 @@
     Pulgada.prototype = new Distancia();
     Pulgada.prototype.constructor = Pulgada;
     Medida.measures.p = Pulgada;
+    Medida.anadirTipos('(p|pu|pul|pulg|pulga|pulgad|pulgada|pulgadas)');
 
     Metro.prototype.toPulgada = function () {
         return new Pulgada(this.valor * 39.3701);
