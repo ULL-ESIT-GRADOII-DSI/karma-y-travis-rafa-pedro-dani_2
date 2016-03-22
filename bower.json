@@ -1,0 +1,24 @@
+{
+  "name": "conversor",
+  "description": "Conversor javascript de tipos",
+  "main": "js/main.js",
+  "authors": [
+    "Rafael Herrero",
+    "Pedro Ramos",
+    "Daniel Ramos"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "conversor"
+  ],
+  "homepage": "https://github.com/ULL-ESIT-GRADOII-DSI/mocha-y-chai-rafa-pedro-dani",
+  "moduleType": [],
+  "dependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "sinon-1.17.3": "http://sinonjs.org/releases/sinon-1.17.3.js",
+    "skeleton": "^2.0.4",
+    "xregexp": "^3.1.0",
+    "blanket": "^1.1.7"
+  }
+}
