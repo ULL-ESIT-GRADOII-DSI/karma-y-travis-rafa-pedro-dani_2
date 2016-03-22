@@ -25,7 +25,7 @@ gulp.task('default', function() {
     }));
 });
 
-var DEST = 'dist';
+var DEST = 'minified';
 gulp.task('minify', function() {
   return gulp.src(['index.html',
                    'assets/*/*',
