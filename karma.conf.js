@@ -21,17 +21,17 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // Dependencias externas
-      'bower_components/xregexp/xregexp-all.js',
+      'vendor/xregexp/xregexp-all.js',
       'assets/js/medida.js',
       'assets/js/temperatura.js',
       'assets/js/distancia.js',
       'assets/js/moneda.js',
 
       // Dependencias para las pruebas
-      'bower_components/chai/chai.js',
-      'bower_components/mocha/mocha.css',
-      'bower_components/mocha/mocha.js',
-      'bower_components/sinon-1.17.3/index.js',
+      'vendor/chai/chai.js',
+      'vendor/mocha/mocha.css',
+      'vendor/mocha/mocha.js',
+      'vendor/sinon-1.17.3/index.js',
 
       // Pruebas
       'test/test_*.js'

@@ -29,8 +29,8 @@ var DEST = 'minified';
 gulp.task('minify', function() {
   return gulp.src(['index.html',
                    'assets/*/*',
-                   'bower_components/skeleton/css/*',
-                   'bower_components/xregexp/xregexp-all.js',
+                   'vendor/skeleton/css/*',
+                   'vendor/xregexp/xregexp-all.js',
                    ], {base: '.'})
     .pipe(minify({
       collapseWhitespace: true,
