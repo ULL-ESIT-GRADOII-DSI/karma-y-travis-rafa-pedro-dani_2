@@ -19,4 +19,14 @@ describe('Prueba', function(){
             sinon.assert.notCalled(console.log); // Prueba de que sinon se carga correctamente
         });
     });
+    describe ('Pruebas con el constructor de Medida.',function(){
+      it ('Debería  pasar si se le pasan dos argumentos.',function(){
+          var prueba1=(new Medida(2,"f"));
+           expect("2f").to.equal(prueba1.valor+prueba1.tipo);
+      });
+      it ('Debería  pasar si se le pasa un argumento.',function(){
+          var prueba1=(new Medida("32f"));
+           expect("32f").to.equal(prueba1.valor+prueba1.tipo);
+      });
+    });
 });
