@@ -12,6 +12,7 @@
 
     Temperatura.prototype = new Medida();
     Temperatura.prototype.constructor = Temperatura;
+    Medida.measures.temperatura = Temperatura;
 
     // =========================================================
     // Definiciones de las clases de los tipos

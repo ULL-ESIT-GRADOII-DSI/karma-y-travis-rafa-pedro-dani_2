@@ -12,6 +12,7 @@
 
     Moneda.prototype = new Medida();
     Moneda.prototype.constructor = Moneda;
+    Medida.measures.moneda = Moneda;
 
     function Dolar(valor) {
         Moneda.call(this, valor, "D");
