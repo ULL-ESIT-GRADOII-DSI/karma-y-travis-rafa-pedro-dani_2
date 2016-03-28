@@ -3,10 +3,16 @@ var expect = chai.expect;
 describe("Pruebas de Monedas y herencia",function(){
     describe("Probando herencia",function(){
       it ("Moneda hereda de Medida",function(){
-          expect(Medida.measures.moneda).to.be.instanceof(Medida);
+          expect(Medida.measures.moneda.prototype).to.be.instanceof(Medida);
       });
-      it ("Euros hereda de Temperatura.",function(){
-         expect(true).to.be.true;        
+      it ("Euro hereda de Moneda.",function(){
+         expect(Medida.measures.e.prototype).to.be.instanceof(Medida.measures.moneda);        
+      });
+      it ("Dolar hereda de Moneda.",function(){
+         expect(Medida.measures.d.prototype).to.be.instanceof(Medida.measures.moneda);        
+      });
+      it ("Libra hereda de Moneda.",function(){
+         expect(Medida.measures.l.prototype).to.be.instanceof(Medida.measures.moneda);        
       });
     });
     describe("Probando medidas",function(){

@@ -12,6 +12,7 @@
 
     Distancia.prototype = new Medida();
     Distancia.prototype.constructor = Distancia;
+    Medida.measures.distancia = Distancia;
 
     function Metro(valor) {
         Distancia.call(this, valor, "M");
