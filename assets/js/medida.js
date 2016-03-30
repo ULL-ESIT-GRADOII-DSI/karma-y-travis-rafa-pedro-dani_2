@@ -11,19 +11,34 @@
         this.valor = valor;
         this.tipo = tipo;
         if (arguments.length === 1) {
-          var controlConstructor = new XRegExp('^\\s* \n' +
-                         '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
-                         '\\s*   \n' +
-                         '(?<tipo> [a-zA-Z]+ )\n'+
-                         '\\s*   $', 'x');
-          var v=XRegExp.exec(valor, controlConstructor);
-          this.tipo=v.tipo;
-          this.valor=v.numero;
+            var controlConstructor = new XRegExp(
+                '^\\s* \n' +
+                '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
+                '\\s*   \n' +
+                '(?<tipo> [a-zA-Z]+ )\n'+
+                '\\s*   $', 'x'
+            );
+            var v=XRegExp.exec(valor, controlConstructor);
+            this.tipo=v.tipo;
+            this.valor=v.numero;
         }
     }
-    Medida.tiposexp = "";
     Medida.tipos = [];
-    var regexp = null;
+    Medida.regexp_complete = null;
+    Medida.floatexp = "(?<NUM> [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)";
+    Medida.whiteexp = "\\s*";
+    Medida.tiposexp = "";
+    Medida.regexp_partial = new XRegExp('^\\s* \n' +
+                        Medida.floatexp.replace(/NUM/g, "numero") +
+                        Medida.whiteexp +
+                        "(?<tip1> [a-z]+)" +
+                        Medida.whiteexp +
+                       '(to)? \n' +
+                        Medida.whiteexp +
+                        "(?<tip2> [a-z]+)" +
+                        Medida.whiteexp +
+                       '$', 'x');
+
 
     Medida.anadirTipos = function (valor) {
         if(valor === undefined){
@@ -39,19 +54,24 @@
         });
         this.tiposexp += '))';
 
-        regexp = new XRegExp('^\\s* \n' +
-                       '(?<numero>  [+-]?[0-9]*\\.?[0-9]+([eE][+-]?[0-9]+)?)  # la cantidad, es numerica \n' +
-                       '\\s*   \n' +
+        this.regexp_complete = new XRegExp('^\\s* \n' +
+                        this.floatexp.replace(/NUM/g, "numero") +
+                        this.whiteexp +
                         this.tiposexp.replace(/SALIDA/g, "tipo") +
-                       '\\s*   \n' +
-                       '(to)? \n' +
-                       '\\s*   \n' +
+                        this.whiteexp +
+                        '(to)? \n' +
+                        this.whiteexp +
                         this.tiposexp.replace(/SALIDA/g, "destino") +
-                       '\\s*   $', 'x');
+                        this.whiteexp +
+                        '$', 'x');
+    };
+
+    Medida.match_partial = function (valor) {
+        return XRegExp.exec(valor, this.regexp_partial);
     };
 
     Medida.match = function (valor) {
-        return XRegExp.exec(valor, regexp);
+        return XRegExp.exec(valor, this.regexp_complete);
     };
 
     Medida.measures = {};
@@ -60,26 +80,26 @@
         valor = valor.toLowerCase();
         var measures = Medida.measures;
 
-        var match = Medida.match(valor);
-        if (match) {
-            var numero = parseFloat(match.numero);
-            var tipo = match.tipo[0];
-            var destino = match.destino[0];
+        var partial_match = Medida.match_partial(valor);
 
-            try {
+        if (partial_match) {
+            var match = Medida.match(valor);
+            if (match) {
+                var numero = parseFloat(match.numero);
+                var tipo = match.tipo[0];
+                var destino = match.destino[0];
                 if(tipo === destino){
                     return new measures[tipo](numero).toString();
                 }
                 var source = new measures[tipo](numero);  // new Fahrenheit(32)
                 var target = "to" + measures[destino].name; // "toCelsius"
                 return source[target]().toString();
-            } catch (err) {
-                console.log('Desconozco como convertir desde "' + tipo + '" hasta "' + destino + '"');
-                console.log(err);
-                return 'Desconozco como convertir desde "' + tipo + '" hasta "' + destino + '"';
+            } else {
+                console.log("No se convertir de " + partial_match.tip1 + " a " + partial_match.tip2);
+                return "No se convertir de " + partial_match.tip1 + " a " + partial_match.tip2;
             }
         } else {
-            console.log("Introduzca una entrada valida como: 330e-1 F to C"); //TODO: Arreglar esto
+            console.log("Introduzca una entrada valida como: 330e-1 F to C");
             return "Introduzca una entrada valida como: 330e-1 F to C";
         }
     };
