@@ -37,7 +37,7 @@ describe("Pruebas de Monedas y herencia", function () {
             sinon.assert.notCalled(console.log);
         });
     });
-    describe("Probando medidas", function () {
+    describe("Probando metodos", function () {
         describe("Probando euros", function () {
             var euro = new Medida.measures.e(2);
             it("#toDolar", function () {
