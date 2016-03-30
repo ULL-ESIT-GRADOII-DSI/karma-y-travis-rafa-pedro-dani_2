@@ -5,7 +5,7 @@
 
 var expect = chai.expect;
 
-describe("Pruebas de Distancia y herencia", function () {
+describe("Pruebas de Distancia", function () {
     "use strict";
     var sandbox;
 
@@ -26,24 +26,38 @@ describe("Pruebas de Distancia y herencia", function () {
         });
     });
     describe("Metro", function () {
+        var metro;
+        beforeEach(function () {
+            metro = new Medida.measures.m(2);
+        });
         it("Metro hereda de Distancia", function () {
             expect(Medida.measures.m.prototype).to.be.instanceof(Medida.measures.distancia);
             sinon.assert.notCalled(console.log);
         });
         it("#toPulgada", function () {
-            var metro = new Medida.measures.m(2);
             expect(metro.toPulgada().valor).to.be.within(78.7, 78.8);
+            sinon.assert.notCalled(console.log);
+        });
+        it("#toString", function () {
+            expect(metro.toString()).to.equal("2.00 Metros");
             sinon.assert.notCalled(console.log);
         });
     });
     describe("Pulgada", function () {
+        var pulgada;
+        beforeEach(function () {
+            pulgada = new Medida.measures.p(2);
+        });
         it("Pulgada hereda de Distancia", function () {
             expect(Medida.measures.p.prototype).to.be.instanceof(Medida.measures.distancia);
             sinon.assert.notCalled(console.log);
         });
         it("#toMetro", function () {
-            var pulgada = new Medida.measures.p(15);
-            expect(pulgada.toMetro().valor).to.be.within(0.38, 0.39);
+            expect(pulgada.toMetro().valor).to.be.within(0.04, 0.06);
+            sinon.assert.notCalled(console.log);
+        });
+        it("#toString", function () {
+            expect(pulgada.toString()).to.equal("2.00 Pulgadas");
             sinon.assert.notCalled(console.log);
         });
     });
