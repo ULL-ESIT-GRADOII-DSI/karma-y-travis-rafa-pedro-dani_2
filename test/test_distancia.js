@@ -30,8 +30,8 @@ describe("Pruebas de Distancia y herencia", function () {
             expect(Medida.measures.m.prototype).to.be.instanceof(Medida.measures.distancia);
             sinon.assert.notCalled(console.log);
         });
-        var metro = new Medida.measures.m(2);
         it("#toPulgada", function () {
+            var metro = new Medida.measures.m(2);
             expect(metro.toPulgada().valor).to.be.within(78.7, 78.8);
             sinon.assert.notCalled(console.log);
         });
@@ -41,8 +41,8 @@ describe("Pruebas de Distancia y herencia", function () {
             expect(Medida.measures.p.prototype).to.be.instanceof(Medida.measures.distancia);
             sinon.assert.notCalled(console.log);
         });
-        var pulgada = new Medida.measures.p(15);
         it("#toMetro", function () {
+            var pulgada = new Medida.measures.p(15);
             expect(pulgada.toMetro().valor).to.be.within(0.38, 0.39);
             sinon.assert.notCalled(console.log);
         });

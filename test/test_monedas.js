@@ -39,34 +39,37 @@ describe("Pruebas de Monedas y herencia", function () {
     });
     describe("Probando metodos", function () {
         describe("Probando euros", function () {
-            var euro = new Medida.measures.e(2);
             it("#toDolar", function () {
+                var euro = new Medida.measures.e(2);
                 expect(euro.toDolar().valor).to.be.within(2.15, 2.25);
                 sinon.assert.notCalled(console.log);
             });
             it("#toLibra", function () {
+                var euro = new Medida.measures.e(2);
                 expect(euro.toLibra().valor).to.be.within(1.54, 1.58);
                 sinon.assert.notCalled(console.log);
             });
         });
         describe("Probando dolares", function () {
-            var dolar = new Medida.measures.d(2);
             it("#toEuro", function () {
+                var dolar = new Medida.measures.d(2);
                 expect(dolar.toEuro().valor).to.be.within(1.7, 1.9);
                 sinon.assert.notCalled(console.log);
             });
             it("#toLibra", function () {
+                var dolar = new Medida.measures.d(2);
                 expect(dolar.toLibra().valor).to.be.within(1.38, 1.40);
                 sinon.assert.notCalled(console.log);
             });
         });
         describe("Probando libras", function () {
-            var libra = new Medida.measures.l(2);
             it("#toEuro", function () {
+                var libra = new Medida.measures.l(2);
                 expect(libra.toEuro().valor).to.be.within(2.86, 2.88);
                 sinon.assert.notCalled(console.log);
             });
             it("#toDolar", function () {
+                var libra = new Medida.measures.l(2);
                 expect(libra.toDolar().valor).to.be.within(2.15, 2.25);
                 sinon.assert.notCalled(console.log);
             });
