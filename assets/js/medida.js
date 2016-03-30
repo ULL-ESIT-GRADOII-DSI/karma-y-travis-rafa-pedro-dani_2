@@ -66,11 +66,9 @@
             var tipo = match.tipo[0];
             var destino = match.destino[0];
 
-            console.log("El match da " + numero + " de tipo " + tipo + " a " + destino);
-
             try {
                 if(tipo === destino){
-                    return new measures[tipo](numero);
+                    return new measures[tipo](numero).toString();
                 }
                 var source = new measures[tipo](numero);  // new Fahrenheit(32)
                 var target = "to" + measures[destino].name; // "toCelsius"
@@ -81,6 +79,7 @@
                 return 'Desconozco como convertir desde "' + tipo + '" hasta "' + destino + '"';
             }
         } else {
+            console.log("Introduzca una entrada valida como: 330e-1 F to C"); //TODO: Arreglar esto
             return "Introduzca una entrada valida como: 330e-1 F to C";
         }
     };
