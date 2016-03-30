@@ -22,7 +22,7 @@ Seguiremos las estrategias descritas en [este Gitbook](https://casianorodriguezl
 
 ###Página de la práctica
 
-* [Web](http://ull-esit-gradoii-dsi.github.io/mocha-y-chai-rafa-pedro-dani/)
+* [Web](http://ull-esit-gradoii-dsi.github.io/mocha-y-chai-rafa-pedro-dani/test.html)
 
 ###Página del campus de la asignatura
 * [Campus Virtual DSI](https://campusvirtual.ull.es/1516/course/view.php?id=144)
