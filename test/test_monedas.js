@@ -40,33 +40,33 @@ describe("Pruebas de Monedas y herencia", function () {
     describe("Probando medidas", function () {
         describe("Probando euros", function () {
             var euro = new Medida.measures.e(2);
-            it("Se debe poder convertir a dolares", function () {
+            it("#toDolar", function () {
                 expect(euro.toDolar().valor).to.be.within(2.15, 2.25);
                 sinon.assert.notCalled(console.log);
             });
-            it("Se debe poder convertir a libras", function () {
+            it("#toLibra", function () {
                 expect(euro.toLibra().valor).to.be.within(1.54, 1.58);
                 sinon.assert.notCalled(console.log);
             });
         });
         describe("Probando dolares", function () {
             var dolar = new Medida.measures.d(2);
-            it("Se debe poder convertir a dolares", function () {
+            it("#toEuro", function () {
                 expect(dolar.toEuro().valor).to.be.within(1.7, 1.9);
                 sinon.assert.notCalled(console.log);
             });
-            it("Se debe poder convertir a libras", function () {
+            it("#toLibra", function () {
                 expect(dolar.toLibra().valor).to.be.within(1.38, 1.40);
                 sinon.assert.notCalled(console.log);
             });
         });
         describe("Probando libras", function () {
             var libra = new Medida.measures.l(2);
-            it("Se debe poder convertir a dolares", function () {
+            it("#toEuro", function () {
                 expect(libra.toEuro().valor).to.be.within(2.86, 2.88);
                 sinon.assert.notCalled(console.log);
             });
-            it("Se debe poder convertir a libras", function () {
+            it("#toDolar", function () {
                 expect(libra.toDolar().valor).to.be.within(2.15, 2.25);
                 sinon.assert.notCalled(console.log);
             });
