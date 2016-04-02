@@ -9,4 +9,3 @@ before_script:
   - npm install -g mocha
   - npm install -g bower
   - bower install
- script: gulp
