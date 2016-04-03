@@ -30,6 +30,9 @@ Seguiremos las estrategias descritas en [este Gitbook](https://casianorodriguezl
 ###Página de la descripción de la práctica
 * [Descripción Práctica desde el campus](https://campusvirtual.ull.es/1516/mod/page/view.php?id=182938)
 
+###Estado de Pruebas en Travis
+  [![Build Status](https://travis-ci.org/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?branch=dev)](https://travis-ci.org/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2)
+
 ###Páginas de los autores
 
 * [Rafa Herrero](http://rafaherrero.github.io/)
