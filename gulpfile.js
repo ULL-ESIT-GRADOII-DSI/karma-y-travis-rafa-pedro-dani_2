@@ -2,7 +2,8 @@ var gulp    = require('gulp'),
     gutil   = require('gulp-util'),
     karma   = require('gulp-karma'),
     del     = require('del'),
-    minify  = require('gulp-minifier');
+    minify  = require('gulp-minifier'),
+    ghPages = require('gulp-gh-pages');
 
 gulp.task('test', function() {
   // Be sure to return the stream
@@ -40,6 +41,11 @@ gulp.task('minify', function() {
       minifyCSS: true
     }))
     .pipe(gulp.dest(DEST));
+});
+
+gulp.task('deploy', function() {
+  return gulp.src('./minified/**/*')
+    .pipe(ghPages());
 });
 
 gulp.task('clean', function(cb) {

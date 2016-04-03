@@ -93,6 +93,8 @@
                 }
                 var source = new measures[tipo](numero);  // new Fahrenheit(32)
                 var target = "to" + measures[destino].name; // "toCelsius"
+                console.log(source)
+                console.log(target)
                 return source[target]().toString();
             } else {
                 console.log("No se convertir de " + partial_match.tip1 + " a " + partial_match.tip2);
