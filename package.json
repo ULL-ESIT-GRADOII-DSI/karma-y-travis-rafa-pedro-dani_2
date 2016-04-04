@@ -36,6 +36,7 @@
   "dependencies": {},
   "devDependencies": {
     "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
@@ -50,6 +51,7 @@
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-safari-launcher": "^0.1.1",
     "mocha": "^2.4.5",
+    "mocha-lcov-reporter": "^1.2.0",
     "phantomjs-prebuilt": "^2.1.6"
   },
   "engines": {
