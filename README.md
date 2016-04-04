@@ -3,6 +3,13 @@
 Este repositorio aloja la práctica anterior de conversión de tipos, realizada con html, css y javascript, usando POO y haciendo uso de la herencia en javascript, aplicando distintas estrategias para la utilización de pruebas gracias a Mocha y Chai. En esta práctica utilizaremos Karma para ejecutar las pruebas y Travis para realizar un cubrimiento. 
 Seguiremos las estrategias descritas en [este Gitbook](https://casianorodriguezleon.gitbooks.io/pl1516/content/practicas/travis.html).  
 
+###Insignias del estado del repositorio
+[![GitHub release](https://img.shields.io/github/release/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/releases)
+[![Build Status](http://img.shields.io/travis/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
+[![Github Issues](http://img.shields.io/github/issues/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/issues)
+[![GitHub commits](https://img.shields.io/github/commits-since/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/1.0.0.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/commits/dev)
+[![GitHub license](https://img.shields.io/github/license/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/blob/dev/LICENSE)
+
 ###Tutorial de instalación 
 1. Clonamos el repositorio `git clone git@github.com:ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.git`.  
 2. Instalamos las dependencias `npm install -g gulp mocha bower`.  
@@ -30,11 +37,6 @@ Seguiremos las estrategias descritas en [este Gitbook](https://casianorodriguezl
 
 ###Página de la descripción de la práctica
 * [Descripción Práctica desde el campus](https://campusvirtual.ull.es/1516/mod/page/view.php?id=185189)
-
-###Insignias del estado del repositorio
-  [![Build Status](http://img.shields.io/travis/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
-  
-[![Github Issues](http://githubbadges.herokuapp.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/issues.svg)](https://github.com/pikesley/githubbadges/issues)
 
 ###Páginas de los autores
 
