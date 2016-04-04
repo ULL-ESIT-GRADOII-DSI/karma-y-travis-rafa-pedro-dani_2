@@ -35,6 +35,7 @@
   "homepage": "http://ull-esit-gradoii-dsi.github.io/mocha-y-chai-rafa-pedro-dani/",
   "dependencies": {},
   "devDependencies": {
+    "blanket": "^1.2.3",
     "chai": "^3.5.0",
     "coveralls": "^2.11.9",
     "del": "^2.2.0",
