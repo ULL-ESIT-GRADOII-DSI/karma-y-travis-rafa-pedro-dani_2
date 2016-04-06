@@ -5,7 +5,7 @@ Seguiremos las estrategias descritas en [este Gitbook](https://casianorodriguezl
 
 ###Insignias del estado del repositorio
 [![GitHub release](https://img.shields.io/github/release/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/releases)
-[![Build Status](http://img.shields.io/travis/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://travis-ci.org/badges/badgerbadgerbadger)
+[![Build Status](http://img.shields.io/travis/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://travis-ci.org/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2)
 [![Coveralls branch](https://img.shields.io/coveralls/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/dev.svg?style=flat-square)](https://coveralls.io/github/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2?branch=dev)
 [![Github Issues](http://img.shields.io/github/issues/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/issues)
 [![GitHub commits](https://img.shields.io/github/commits-since/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/1.0.0.svg?style=flat-square)](https://github.com/ULL-ESIT-GRADOII-DSI/karma-y-travis-rafa-pedro-dani_2/commits/dev)
